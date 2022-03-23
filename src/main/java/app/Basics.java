@@ -6,6 +6,7 @@ import static org.hamcrest.Matchers.*;
 import files.Payload;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
+import org.testng.Assert;
 
 import java.util.LinkedHashMap;
 
@@ -35,5 +36,30 @@ public class Basics {
         System.out.println(placeId);
         System.out.println(x);
         System.out.println(x.get("place_id"));
+
+        String newAddress = "70 Summer walk, USA";
+
+        given().log().all()
+                .queryParam("key", "qaclick123")
+                .header("Content-Type", "application/json")
+                .body("{\n" +
+                        "    \"place_id\":\"" + placeId + "\",\n" +
+                        "    \"address\":\"" + newAddress + "\",\n" +
+                        "    \"key\":\"qaclick123\"\n" +
+                        "}\n")
+                .when().put("maps/api/place/update/json")
+                .then().log().all().assertThat().statusCode(200)
+                .body("msg", equalTo("Address successfully updated"));
+
+        given().log().all()
+                .queryParam("key", "qaclick123")
+                .queryParam("place_id", placeId)
+                .when().get("maps/api/place/get/json")
+                .then().assertThat().statusCode(200)
+                .body("address", equalTo(newAddress));
+
+        //TestNG assertion
+        Assert.assertEquals(newAddress, "blabla", "custom mess");
+
     }
 }
