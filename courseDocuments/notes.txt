@@ -1,0 +1,56 @@
+Set up the project as a Maven project
+Maven is used to managed dependencies
+
+in src/main/java
+================
+create a package (let us call it app)
+packages are useful when grouping resources
+
+in pom.xml
+==========
+add <dependencies> tag and add all your dependencies in it
+<dependency>
+  ...
+</dependency>
+
+you can find maven packages on: https://mvnrepository.com/
+
+for each dependency,  make sure you set the correct scope
+remove it though to keep things simple as classes in "main" will not be able to access "scope: test" for example
+
+The following matchers are static, IDEs will not fill automatically
+-------------------------------------------------------------------
+import static io.restassured.RestAssured.*;
+import static org.hamcrest.Matchers.*;
+
+Below is how to import from custom package
+------------------------------------------
+import files.Payload;
+
+Rest-Assured
+============
+given() / when() / then()
+given: used to set up the request data
+when: used to set up the request path
+then: used after getting the response
+
+.log().all can be chained to log
+
+Chain HTTP request method to when(): .get("/path"), .post("/path"), .put("/path")... etc
+Naming conventions:
+endpoint: api.anghami.com
+base url: https://api.anghami.com
+path: anything after base url
+resource, what comes after the slash api.anghami.com/public => "public"
+sub-resource: api.anghami.com/public/user => "user"
+QueryString: anything after "?"
+
+Hamcrest Lib
+============
+Provides matcher and allows you to create your own => useful with TestNG or Rest-Assured style assertions
+can also be used with JUnit
+
+JsonPath
+========
+import io.restassured.path.json.JsonPath;
+Lib comes with restassured and allows you to parse json in an easy way
