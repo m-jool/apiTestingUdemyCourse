@@ -8,6 +8,8 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.testng.Assert;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.LinkedHashMap;
 
 public class Basics {
@@ -61,5 +63,8 @@ public class Basics {
         //TestNG assertion
         Assert.assertEquals(newAddress, "blabla", "custom mess");
 
+        /*NOTE: Reading from .json file:
+            new String(Files.readAllBytes(Paths.get("./........./.json")))
+         */
     }
 }

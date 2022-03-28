@@ -7,7 +7,8 @@ import org.testng.annotations.Test;
 
 @Test
 public class complexJsonParseTest {
-    public static void main(String[] args){
+
+    public void simpleTest(){
         JsonPath js = new JsonPath(Payload.CoursePrice());
 
         /*
@@ -43,4 +44,5 @@ public class complexJsonParseTest {
         System.out.println("purchaseAmount: " + js.getInt("dashboard.purchaseAmount"));
         Assert.assertEquals(total, js.getInt("dashboard.purchaseAmount"), "Total shoul match purchaseAmount");
     }
+
 }

@@ -34,6 +34,13 @@
             <artifactId>hamcrest</artifactId>
             <version>2.2-rc1</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-nop -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-nop</artifactId>
+            <version>1.7.36</version>
+        </dependency>
     </dependencies>
 
 </project>
