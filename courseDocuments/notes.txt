@@ -54,3 +54,29 @@ JsonPath
 ========
 import io.restassured.path.json.JsonPath;
 Lib comes with restassured and allows you to parse json in an easy way
+
+Reading from .json file:
+=========================
+new String(Files.readAllBytes(Paths.get("./........./.json")))
+from File -> Bytes -> String
+
+Accessing deep JSON data
+------------------------
+using JsonPath object: js.getString("courses[0].title")
+"courses.size()" => gets array length and can be with iterators like for()
+
+PS: Break; from loops when you can
+
+Parametrization
+===============
+Annotation above method name: @Test(dataProvider = "booksData")
+Annotation above data provider @DataProvider(name="booksData")
+the latter normally returns arrays: Object[] or Object[][]...
+
+IntelliJ IDEA and TestNG
+========================
+The plugin comes already installed
+once the @Test annotation is added, IntelliJ will detect this automatically and run it with TestNG
+
+
+
