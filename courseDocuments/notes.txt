@@ -78,5 +78,40 @@ IntelliJ IDEA and TestNG
 The plugin comes already installed
 once the @Test annotation is added, IntelliJ will detect this automatically and run it with TestNG
 
+Set up Jira Locally for lecture
+===============================
+On OsX/Linux
+https://www.atlassian.com/software/jira/download;
 
+put the extracted folder in home directory
+go into it, find the conf/server.xml file and the following to <context>
+<Parameter name="jira.home" value="/Users/joseph/jira/home"/>
+path needs to be absolute
+https://docs.atlassian.com/software/jira/docs/api/REST/8.22.1/
+
+From Jira page, on top right, Select Settings Icon > System > Attachments (under Advanced): Set Allow Attachments to ON
+Make it us the default folder under jira.home for ease of use
+
+When dealing with REST APIs:
+============================
+Path parameters can be set in the following manner
+given().pathParam("id", 10000)
+...
+.when().post("/rest/api/2/issue/{id}/comment")
+
+SessionFilter can be used to propagate session information such as cookies to all subsequent requests
+SessionFilter sessionFilter = new SessionFilter();
+...
+.filter(sessionFilter).when()
+...
+
+Depending on the system, files might need to be uploaded using multi-part
+some libs like rest-assured already provide this, for example
+.multiPart("file", new File("jira.txt"))
+File() => path is project root by default => better for later, figure out a way to put this data
+in the resources folder and fetch it when needed
+=> needs a header "content-type" "multipart/form-data"
+
+.relaxedHTTPSValidation() => this method can be used after given() in case res-assured if having trouble dealing with
+the server certificate, as a certificate check might not be required for such tests
 
