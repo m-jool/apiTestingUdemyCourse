@@ -118,9 +118,14 @@ the server certificate, as a certificate check might not be required for such te
 .header().header().header() => these can be chained to add headers
 
 Personal Note: it is better to use a hashmap for headers like this:
-
+:w
 Map<String, String> headersMap = new HashMap<String, String>();
 headersMap.put("X-Atlassian-Token", "no-check");
 headersMap.put("Content-Type", "multipart/form-data");
 ...
 given().headers(headersMap)
+
+OAuth2 with Google
+==================
+Call URL with client ID and redirect URL to get code
+Use code with client ID and client Secret to get accessToken
