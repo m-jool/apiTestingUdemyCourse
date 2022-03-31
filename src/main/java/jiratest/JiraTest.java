@@ -6,6 +6,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 
 import static io.restassured.RestAssured.*;
 
@@ -42,8 +44,11 @@ public class JiraTest {
                 .then().assertThat().statusCode(201).extract().response().asString();
 
         // Add attachment
-        given().header("X-Atlassian-Token", "no-check")
-                .header("Content-Type","multipart/form-data")
+        Map<String, String> headersMap = new HashMap<String, String>();
+        headersMap.put("X-Atlassian-Token", "no-check");
+        headersMap.put("Content-Type", "multipart/form-data");
+
+        given().headers(headersMap)
                 .filter(sessionFilter)
                 .pathParam("id", 10000)
                 .multiPart("file", new File("jira.txt"))

@@ -115,3 +115,12 @@ in the resources folder and fetch it when needed
 .relaxedHTTPSValidation() => this method can be used after given() in case res-assured if having trouble dealing with
 the server certificate, as a certificate check might not be required for such tests
 
+.header().header().header() => these can be chained to add headers
+
+Personal Note: it is better to use a hashmap for headers like this:
+
+Map<String, String> headersMap = new HashMap<String, String>();
+headersMap.put("X-Atlassian-Token", "no-check");
+headersMap.put("Content-Type", "multipart/form-data");
+...
+given().headers(headersMap)
