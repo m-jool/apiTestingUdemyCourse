@@ -1,7 +1,9 @@
 package oauth;
 
+import io.restassured.parsing.Parser;
 import io.restassured.path.json.JsonPath;
 import org.testng.annotations.Test;
+import pojo.GetCourse;
 
 import java.util.HashMap;
 
@@ -32,7 +34,12 @@ public class Oauth {
         String response = given().queryParam("access_token", accessToken)
                 .when().get("https://rahulshettyacademy.com/getCourse.php").asString();
 
-        System.out.println(response);
+        //If response header Content-Type is application/json, then you do not need to set defaultParser
+        GetCourse responseDeserialized =  given().queryParam("access_token", accessToken)
+                .expect().defaultParser(Parser.JSON)
+                .when().get("https://rahulshettyacademy.com/getCourse.php").as(GetCourse.class);
+
+        System.out.println(responseDeserialized.getLinkedIn());
 
     }
 }

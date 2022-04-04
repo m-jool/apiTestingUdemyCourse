@@ -129,3 +129,14 @@ OAuth2 with Google
 ==================
 Call URL with client ID and redirect URL to get code
 Use code with client ID and client Secret to get accessToken
+
+POJO and Deserialization
+========================
+Create classes that map to how the JSON you want to deserialize looks like
+In the case of arrays, use List<E> for return type and private variables
+
+you can the deserialize using with Gson, Jackson or what already come with rest-assured
+.as(GetCourse.class);
+
+NOTE: Read https://www.baeldung.com/jackson-vs-gson
+Pick one, you do not need both
