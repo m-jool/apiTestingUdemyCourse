@@ -140,3 +140,23 @@ you can the deserialize using with Gson, Jackson or what already come with rest-
 
 NOTE: Read https://www.baeldung.com/jackson-vs-gson
 Pick one, you do not need both
+
+Iterating over lists
+====================
+The old fashion way
+List<Api> apiList = responseDeserialized.getCourses().getApi();
+        for (int i = 0; i < apiList.size(); i++) {
+            ...
+        }
+
+New methods using forEach, advanced for loop and iterators and listIterators:
+https://crunchify.com/how-to-iterate-through-java-list-4-way-to-iterate-through-loop/
+
+Arrays.asList() => this is used to convert arrays into lists
+comparing ArrayLists (or Lists) is easier then comparing Arrays and ArrayLists (or Lists)
+=> i.e comparing 2 collections of the same Type is easier than dealing with different types
+since we can then do:
+Assert.assertTrue(list1.equals(list2))
+
+
+

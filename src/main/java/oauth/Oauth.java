@@ -3,9 +3,11 @@ package oauth;
 import io.restassured.parsing.Parser;
 import io.restassured.path.json.JsonPath;
 import org.testng.annotations.Test;
+import pojo.Api;
 import pojo.GetCourse;
 
 import java.util.HashMap;
+import java.util.List;
 
 import static io.restassured.RestAssured.*;
 
@@ -39,7 +41,16 @@ public class Oauth {
                 .expect().defaultParser(Parser.JSON)
                 .when().get("https://rahulshettyacademy.com/getCourse.php").as(GetCourse.class);
 
+        responseDeserialized.getCourses().getApi().get(1).getCourseTitle();
+
         System.out.println(responseDeserialized.getLinkedIn());
+
+        List<Api> apiList = responseDeserialized.getCourses().getApi();
+        for (int i = 0; i < apiList.size(); i++) {
+            if(apiList.get(i).getCourseTitle().equalsIgnoreCase("soapui webservice testing")){
+                System.out.println(apiList.get(i).getPrice());
+            }
+        }
 
     }
 }
