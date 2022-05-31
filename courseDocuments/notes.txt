@@ -158,5 +158,10 @@ comparing ArrayLists (or Lists) is easier then comparing Arrays and ArrayLists (
 since we can then do:
 Assert.assertTrue(list1.equals(list2))
 
+Spec Builder
+============
+RequestSpecification rsb = new RequestSpecBuilder()
+ResponseSpecification resSpecB = new ResponseSpecBuilder()
+=> used to define all common variables to reduce repeated code.
 
 
