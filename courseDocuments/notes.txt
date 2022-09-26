@@ -84,7 +84,7 @@ On OsX/Linux
 https://www.atlassian.com/software/jira/download;
 
 put the extracted folder in home directory
-go into it, find the conf/server.xml file and the following to <context>
+go into it, find the conf/server.xml file and add the following to <context>
 <Parameter name="jira.home" value="/Users/joseph/jira/home"/>
 path needs to be absolute
 https://docs.atlassian.com/software/jira/docs/api/REST/8.22.1/
@@ -164,4 +164,9 @@ RequestSpecification rsb = new RequestSpecBuilder()
 ResponseSpecification resSpecB = new ResponseSpecBuilder()
 => used to define all common variables to reduce repeated code.
 
-
+Configuring maven
+=================
+download search for apache maven and download
+extract
+set up MAVEN_HOME to point to extracted folder
+add mvn binary to the path
