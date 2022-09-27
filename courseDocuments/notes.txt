@@ -1,3 +1,5 @@
+Link to course: https://www.udemy.com/course/rest-api-automation-testing-rest-assured
+
 Set up the project as a Maven project
 Maven is used to managed dependencies
 
@@ -166,6 +168,7 @@ ResponseSpecification resSpecB = new ResponseSpecBuilder()
 
 Configuring maven
 =================
+maven is not just for packages, but also for frameworks
 download search for apache maven and download
 extract
 set up MAVEN_HOME to point to extracted folder
