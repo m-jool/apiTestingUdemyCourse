@@ -189,3 +189,6 @@ Files must end with extension .feature
 Feature files are test suites with multiple scenarios
 
 Maven can provide Cucumber project skeleton
+needed requirements
+cucumber-java
+cucumber-junit
