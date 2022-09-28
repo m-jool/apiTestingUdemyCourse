@@ -192,3 +192,15 @@ Maven can provide Cucumber project skeleton
 needed requirements
 cucumber-java
 cucumber-junit
+
+Framework:
+Feature file (suite with cases)
+StepDefinition
+JunitTestRunner
+
+for the TestRunner:
+@RunWith(Cucumber.class)
+@CucumberOptions(
+        features = "src/main/java/features", => executes all files in package, else you can add file name to point it to one file like "src/main/java/features/Login"
+        glue = "step_definitions" => should be a package name that contains the step definition files
+)
