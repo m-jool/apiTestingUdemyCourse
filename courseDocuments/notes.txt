@@ -182,3 +182,10 @@ To create a basic maven project
 mvn archetype:generate -DgroupId=com.apitests.app -DartifactId=ApiTests -DarchetypeArtifcatId=maven-archetype-quickstart -DinteractiveMode=false
 groupId => Package name
 artifactId => Project name
+
+Cucumber / Gherkin
+==================
+Files must end with extension .feature
+Feature files are test suites with multiple scenarios
+
+Maven can provide Cucumber project skeleton
