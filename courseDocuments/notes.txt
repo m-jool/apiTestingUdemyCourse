@@ -173,3 +173,12 @@ download search for apache maven and download
 extract
 set up MAVEN_HOME to point to extracted folder
 add mvn binary to the path
+
+groupid => project name (can contain multiple projects)
+artifcatid => subproject
+version => the version to install
+
+To create a basic maven project
+mvn archetype:generate -DgroupId=com.apitests.app -DartifactId=ApiTests -DarchetypeArtifcatId=maven-archetype-quickstart -DinteractiveMode=false
+groupId => Package name
+artifactId => Project name
