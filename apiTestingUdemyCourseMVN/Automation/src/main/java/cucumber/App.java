@@ -1,4 +1,4 @@
-package Cucumber;
+package cucumber;
 
 /**
  * Hello world!
