@@ -18,14 +18,10 @@ import static io.restassured.RestAssured.given;
 import static org.junit.Assert.*;
 
 import pojo.AddPlace;
-import pojo.Location;
 import resources.TestDataBuild;
 import resources.Utils;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class StepDefPlaceValApi extends Utils {
@@ -34,9 +30,9 @@ public class StepDefPlaceValApi extends Utils {
     Response res;
     TestDataBuild testDataBuild = new TestDataBuild();
 
-    @Given("Add Place Payload")
-    public void addPlacePayload() throws IOException {
-        AddPlace addPlace = testDataBuild.addPlacePayload();
+    @Given("Add Place Payload with {string} {string} {string}")
+    public void addPlacePayload(String name, String lang, String address) throws IOException {
+        AddPlace addPlace = testDataBuild.addPlacePayload(name, lang, address);
         req = given().spec(requestSepcification()).body(addPlace);
     }
 

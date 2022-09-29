@@ -217,4 +217,15 @@ create a project resources folder (from project structure, so not a simple folde
 then fetch the data dynamically (during compilation, the project's structure changes)
 InputStream inputStream = getClass().getClassLoader().getResourceAsStream("config/global.properties");
 
+To drive Data dynamically:
+  Scenario Outline: Verify if Place...
+    Given Add Place Payload with "<name>" "<lang>" "<address>"
+    ...
+
+    Examples:
+    | name | lang | address |
+    | hel | ar | house me house|
+    | juju | en | from susi street|
+
+use "Outline" keyword, "Examples" to create a data tables and reference the column name using "<...>"
 
