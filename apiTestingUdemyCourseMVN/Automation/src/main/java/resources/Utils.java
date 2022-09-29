@@ -10,13 +10,18 @@ import java.io.*;
 import java.util.Properties;
 
 public class Utils {
+
+    //shared across all instances of class
+    public static RequestSpecification rsb = null;
+
     public RequestSpecification requestSepcification() throws IOException {
+        if(rsb != null){
+            return rsb;
+        }
 
         PrintStream log = new PrintStream(new FileOutputStream("logging.txt"));
-
         final Properties prop = getGlobalValues();
-
-        RequestSpecification rsb = new RequestSpecBuilder().setBaseUri(prop.getProperty("baseUrl"))
+        rsb = new RequestSpecBuilder().setBaseUri(prop.getProperty("baseUrl"))
                 .addQueryParam("key", "qaclick123")
                 .setContentType(ContentType.JSON)
                 .addFilter(RequestLoggingFilter.logRequestTo(log))
