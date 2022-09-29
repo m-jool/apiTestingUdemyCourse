@@ -211,4 +211,10 @@ Then Card are displayed => Then Card displayed is "true"
 Then Card are not displayed => Then Card displayed is "false"
 that way, you implement this once
 
-Make step definition files data independent
+Make step definition and data files independent
+
+create a project resources folder (from project structure, so not a simple folder) - build path needs to understand that
+then fetch the data dynamically (during compilation, the project's structure changes)
+InputStream inputStream = getClass().getClassLoader().getResourceAsStream("config/global.properties");
+
+
