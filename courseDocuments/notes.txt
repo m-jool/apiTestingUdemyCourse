@@ -204,3 +204,9 @@ for the TestRunner:
         features = "src/main/java/features", => executes all files in package, else you can add file name to point it to one file like "src/main/java/features/Login"
         glue = "step_definitions" => should be a package name that contains the step definition files
 )
+
+tip for Gherkin syntax:
+focus on reusability
+Then Card are displayed => Then Card displayed is "true"
+Then Card are not displayed => Then Card displayed is "false"
+that way, you implement this once
