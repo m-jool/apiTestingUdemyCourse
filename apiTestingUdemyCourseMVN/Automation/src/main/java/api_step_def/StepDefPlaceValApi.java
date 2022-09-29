@@ -19,62 +19,36 @@ import static org.junit.Assert.*;
 
 import pojo.AddPlace;
 import pojo.Location;
+import resources.TestDataBuild;
+import resources.Utils;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class StepDefPlaceValApi {
+public class StepDefPlaceValApi extends Utils {
     ResponseSpecification resSpecB;
     RequestSpecification req;
     Response res;
+    TestDataBuild testDataBuild = new TestDataBuild();
 
     @Given("Add Place Payload")
-    public void addPlacePayload() {
-        RestAssured.baseURI = "https://rahulshettyacademy.com";
-
-        AddPlace addPlace = new AddPlace();
-        addPlace.setAccuracy(50);
-        addPlace.setLanguage("French-IN");
-        addPlace.setName("Frontline house");
-        addPlace.setPhone_number("(+91) 983 893 3937");
-        addPlace.setAddress("29, side layout, cohen 09");
-        addPlace.setWebsite("http://google.com");
-
-        List<String> list = new ArrayList<String>();
-        list.add("shoe park");
-        list.add("shop");
-        addPlace.setTypes(list);
-
-        Location location = new Location();
-        location.setLat(-38.383494);
-        location.setLng(33.427362);
-        addPlace.setLocation(location);
-
-        res = given().queryParam("key", "qaclick123")
-                .body(addPlace)
-                .when().post("/maps/api/place/add/json")
-                .then().assertThat().statusCode(200).extract().response();
-
-        String resString = res.asString();
-
-        RequestSpecification rsb = new RequestSpecBuilder().setBaseUri("https://rahulshettyacademy.com")
-                .addQueryParam("key", "qaclick123")
-                .setContentType(ContentType.JSON)
-                .build();
-
-        req = given().spec(rsb).body(addPlace).log().all();
-
-        resSpecB = new ResponseSpecBuilder()
-                .expectContentType(ContentType.JSON)
-                .expectStatusCode(200)
-                .build();
+    public void addPlacePayload() throws IOException {
+        AddPlace addPlace = testDataBuild.addPlacePayload();
+        req = given().spec(requestSepcification()).body(addPlace);
     }
 
     @When("user calls {string} with POST HTTP request")
     public void userCallsWithPOSTHTTPRequest(String arg0) {
+        resSpecB = new ResponseSpecBuilder()
+                .expectContentType(ContentType.JSON)
+                .expectStatusCode(200)
+                .build();
+
         res = req.when().post("/maps/api/place/add/json")
-                .then().log().all().spec(resSpecB).extract().response();
+                .then().spec(resSpecB).extract().response();
     }
 
     @Then("the API call is successful with status code {int}")

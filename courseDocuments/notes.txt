@@ -210,3 +210,5 @@ focus on reusability
 Then Card are displayed => Then Card displayed is "true"
 Then Card are not displayed => Then Card displayed is "false"
 that way, you implement this once
+
+Make step definition files data independent
