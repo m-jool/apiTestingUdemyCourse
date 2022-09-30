@@ -12,9 +12,9 @@ Multiparts:		<none>
 Body:
 {
     "accuracy": 50,
-    "name": "hel",
+    "name": "helf",
     "phone_number": "(+91) 983 893 3937",
-    "address": "house me house",
+    "address": "house dme house",
     "website": "http://google.com",
     "language": "ar",
     "location": {
@@ -27,7 +27,7 @@ Body:
     ]
 }
 HTTP/1.1 200 OK
-Date: Thu, 29 Sep 2022 14:14:07 GMT
+Date: Fri, 30 Sep 2022 11:03:26 GMT
 Server: Apache/2.4.41 (Ubuntu)
 Access-Control-Allow-Origin: *
 Access-Control-Allow-Methods: POST
@@ -40,10 +40,48 @@ Content-Type: application/json;charset=UTF-8
 
 {
     "status": "OK",
-    "place_id": "b1b37b9c4c28dba5218cfbf9a4492157",
+    "place_id": "d1f204bfaacfaff479c24a771461a4de",
     "scope": "APP",
-    "reference": "21c9fdc25bdef5e7e0307e0df21c6ae121c9fdc25bdef5e7e0307e0df21c6ae1",
-    "id": "21c9fdc25bdef5e7e0307e0df21c6ae1"
+    "reference": "86c83701c01bfc768b04bbd32d042ffb86c83701c01bfc768b04bbd32d042ffb",
+    "id": "86c83701c01bfc768b04bbd32d042ffb"
+}
+Request method:	GET
+Request URI:	https://rahulshettyacademy.com/maps/api/place/get/json?key=qaclick123&place_id=d1f204bfaacfaff479c24a771461a4de
+Proxy:			<none>
+Request params:	<none>
+Query params:	key=qaclick123
+				place_id=d1f204bfaacfaff479c24a771461a4de
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 200 OK
+Date: Fri, 30 Sep 2022 11:03:26 GMT
+Server: Apache/2.4.41 (Ubuntu)
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With
+Content-Length: 229
+Keep-Alive: timeout=5, max=100
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+
+{
+    "location": {
+        "latitude": "-38.383494",
+        "longitude": "33.427362"
+    },
+    "accuracy": "50",
+    "name": "helf",
+    "phone_number": "(+91) 983 893 3937",
+    "address": "house dme house",
+    "types": "shoe park,shop",
+    "website": "http://google.com",
+    "language": "ar"
 }
 Request method:	POST
 Request URI:	https://rahulshettyacademy.com/maps/api/place/add/json?key=qaclick123
@@ -59,11 +97,11 @@ Multiparts:		<none>
 Body:
 {
     "accuracy": 50,
-    "name": "juju",
+    "name": "jujus",
     "phone_number": "(+91) 983 893 3937",
-    "address": "from susi street",
+    "address": "from susdi street",
     "website": "http://google.com",
-    "language": "en",
+    "language": "fr",
     "location": {
         "lat": -38.383494,
         "lng": 33.427362
@@ -74,7 +112,7 @@ Body:
     ]
 }
 HTTP/1.1 200 OK
-Date: Thu, 29 Sep 2022 14:14:07 GMT
+Date: Fri, 30 Sep 2022 11:03:27 GMT
 Server: Apache/2.4.41 (Ubuntu)
 Access-Control-Allow-Origin: *
 Access-Control-Allow-Methods: POST
@@ -87,8 +125,46 @@ Content-Type: application/json;charset=UTF-8
 
 {
     "status": "OK",
-    "place_id": "58cdcf398aac515d382c7530b66fb656",
+    "place_id": "17d0c1599de1c687b51291832bf9993c",
     "scope": "APP",
-    "reference": "b60f7a5415ece197f3aeac6af67bd925b60f7a5415ece197f3aeac6af67bd925",
-    "id": "b60f7a5415ece197f3aeac6af67bd925"
+    "reference": "4c806d5a42def32675694a85bc4f52d94c806d5a42def32675694a85bc4f52d9",
+    "id": "4c806d5a42def32675694a85bc4f52d9"
+}
+Request method:	GET
+Request URI:	https://rahulshettyacademy.com/maps/api/place/get/json?key=qaclick123&place_id=17d0c1599de1c687b51291832bf9993c
+Proxy:			<none>
+Request params:	<none>
+Query params:	key=qaclick123
+				place_id=17d0c1599de1c687b51291832bf9993c
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 200 OK
+Date: Fri, 30 Sep 2022 11:03:27 GMT
+Server: Apache/2.4.41 (Ubuntu)
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With
+Content-Length: 232
+Keep-Alive: timeout=5, max=100
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+
+{
+    "location": {
+        "latitude": "-38.383494",
+        "longitude": "33.427362"
+    },
+    "accuracy": "50",
+    "name": "jujus",
+    "phone_number": "(+91) 983 893 3937",
+    "address": "from susdi street",
+    "types": "shoe park,shop",
+    "website": "http://google.com",
+    "language": "fr"
 }

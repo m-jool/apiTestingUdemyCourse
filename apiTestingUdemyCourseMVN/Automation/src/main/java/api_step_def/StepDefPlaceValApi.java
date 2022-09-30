@@ -4,24 +4,19 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
-import io.restassured.RestAssured;
-import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.builder.ResponseSpecBuilder;
-import io.restassured.http.ContentType;
-import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
-import static io.restassured.RestAssured.given;
-
-import static org.junit.Assert.*;
-
 import pojo.AddPlace;
+import resources.APIresources;
 import resources.TestDataBuild;
+
 import resources.Utils;
 
 import java.io.IOException;
+
+import static io.restassured.RestAssured.given;
+import static org.junit.Assert.assertEquals;
 
 
 public class StepDefPlaceValApi extends Utils {
@@ -36,28 +31,36 @@ public class StepDefPlaceValApi extends Utils {
         req = given().spec(requestSepcification()).body(addPlace);
     }
 
-    @When("user calls {string} with POST HTTP request")
-    public void userCallsWithPOSTHTTPRequest(String arg0) {
-        resSpecB = new ResponseSpecBuilder()
-                .expectContentType(ContentType.JSON)
-                .expectStatusCode(200)
-                .build();
-
-        res = req.when().post("/maps/api/place/add/json")
-                .then().spec(resSpecB).extract().response();
+    @When("user calls {string} with {string} HTTP request")
+    public void userCallsWithHTTPRequest(String path, String method) throws IOException {
+//        res = req.when().post(APIresources.AddPlaceApi.getPath())
+//                .then().spec(resSpecB).extract().response();
+        if (method.equalsIgnoreCase("POST"))
+            res = req.when().post(APIresources.valueOf(path).getPath())
+                    .then().spec(responseSpecification()).extract().response();
+        else if (method.equalsIgnoreCase("GET"))
+            res = req.when().get(APIresources.valueOf(path).getPath())
+                    .then().spec(responseSpecification()).extract().response();
     }
 
     @Then("the API call is successful with status code {int}")
-    public void theAPICallIsSuccessfulWithStatusCode(int arg0) {
+    public void theAPICallIsSuccessfulWithStatusCode (int arg0) {
         assertEquals(200, res.statusCode());
     }
 
     @And("{string} in response body is {string}")
-    public void inResponseBodyIs(String arg0, String arg1) {
-        String resString =  res.asString();
-        JsonPath js = new JsonPath(resString);
-        assertEquals(arg1, js.get(arg0));
+    public void inResponseBodyIs(String keyValue, String expectedValue) {
+        assertEquals(getJsonPath(res, keyValue), expectedValue);
+    }
 
-        System.out.println(arg1 + " / " + arg0);
+    @And("verify place_Id maps to {string} using {string}")
+    public void verifyPlace_IdMapsToUsing(String name, String api) throws IOException {
+//        prepare request spec
+        String place_id = getJsonPath(res, "place_id");
+        req = given().spec(requestSepcification()).queryParam("place_id", place_id);
+        userCallsWithHTTPRequest(api, "GET");
+        String actualName = getJsonPath(res, "name");
+
+        assertEquals(actualName, name);
     }
 }
