@@ -1,0 +1,15 @@
+/Users/joseph/repos/apiTestingUdemyCourse/apiTestingUdemyCourseMVN/Automation/src/main/java/pojo/Mobile.java
+/Users/joseph/repos/apiTestingUdemyCourse/apiTestingUdemyCourseMVN/Automation/src/main/java/resources/APIresources.java
+/Users/joseph/repos/apiTestingUdemyCourse/apiTestingUdemyCourseMVN/Automation/src/main/java/resources/TestDataBuild.java
+/Users/joseph/repos/apiTestingUdemyCourse/apiTestingUdemyCourseMVN/Automation/src/main/java/pojo/WebAutomation.java
+/Users/joseph/repos/apiTestingUdemyCourse/apiTestingUdemyCourseMVN/Automation/src/main/java/cucumber/App.java
+/Users/joseph/repos/apiTestingUdemyCourse/apiTestingUdemyCourseMVN/Automation/src/main/java/resources/Utils.java
+/Users/joseph/repos/apiTestingUdemyCourse/apiTestingUdemyCourseMVN/Automation/src/main/java/api_step_def/StepDefPlaceValApi.java
+/Users/joseph/repos/apiTestingUdemyCourse/apiTestingUdemyCourseMVN/Automation/src/main/java/cucumber_options/TestRunner.java
+/Users/joseph/repos/apiTestingUdemyCourse/apiTestingUdemyCourseMVN/Automation/src/main/java/pojo/Api.java
+/Users/joseph/repos/apiTestingUdemyCourse/apiTestingUdemyCourseMVN/Automation/src/main/java/api_step_def/Hooks.java
+/Users/joseph/repos/apiTestingUdemyCourse/apiTestingUdemyCourseMVN/Automation/src/main/java/pojo/Courses.java
+/Users/joseph/repos/apiTestingUdemyCourse/apiTestingUdemyCourseMVN/Automation/src/main/java/pojo/Location.java
+/Users/joseph/repos/apiTestingUdemyCourse/apiTestingUdemyCourseMVN/Automation/src/main/java/pojo/AddPlace.java
+/Users/joseph/repos/apiTestingUdemyCourse/apiTestingUdemyCourseMVN/Automation/src/main/java/step_definitions/StepDefinition.java
+/Users/joseph/repos/apiTestingUdemyCourse/apiTestingUdemyCourseMVN/Automation/src/main/java/pojo/GetCourse.java

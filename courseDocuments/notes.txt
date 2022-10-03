@@ -289,4 +289,10 @@ From POM.xml, under <build>
   <testSourceDirectory>src/foobar/java</testSourceDirectory>
 </build>
 
+Running tagged tests from maven command
+---------------------------------------
+This depends on the versions of JUnit and TestNG being used
+For JUnit 4 and newer TestNG versions
+mvn test -Dcucumber.filter.tags="@AddPlace"
+
 
