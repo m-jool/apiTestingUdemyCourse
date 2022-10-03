@@ -10,9 +10,9 @@ Feature: Validatin Place API's
     And verify place_Id maps to "<name>" using "GetPlaceApi"
 
     Examples:
-    | name | lang | address |
-    | helf | ar | house dme house|
-    | jujus | fr | from susdi street|
+      | name  | lang | address           |
+      | helf  | ar   | house dme house   |
+      | jujus | fr   | from susdi street |
 
   @DeletePlace
   Scenario: Verify Delete functionality is working

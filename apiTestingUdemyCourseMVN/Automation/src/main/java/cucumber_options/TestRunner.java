@@ -13,7 +13,13 @@ import org.junit.runner.RunWith;
         glue = {
                 "step_definitions",
                 "api_step_def"
+        },
+        plugin = {
+                "json:target/jsonReports/cucumber-report.json",
+                "html:target/cucumber-report/cucumber.html",
+                "pretty"
         }
 )
 public class TestRunner {
+    // compile, test, verify
 }

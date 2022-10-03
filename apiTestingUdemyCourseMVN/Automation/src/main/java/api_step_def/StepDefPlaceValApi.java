@@ -44,7 +44,7 @@ public class StepDefPlaceValApi extends Utils {
     }
 
     @Then("the API call is successful with status code {int}")
-    public void theAPICallIsSuccessfulWithStatusCode (int arg0) {
+    public void theAPICallIsSuccessfulWithStatusCode(int arg0) {
         assertEquals(200, res.statusCode());
     }
 
