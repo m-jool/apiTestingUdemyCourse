@@ -10,7 +10,6 @@ import io.restassured.specification.ResponseSpecification;
 import pojo.AddPlace;
 import resources.APIresources;
 import resources.TestDataBuild;
-
 import resources.Utils;
 
 import java.io.IOException;
@@ -24,6 +23,7 @@ public class StepDefPlaceValApi extends Utils {
     RequestSpecification req;
     Response res;
     TestDataBuild testDataBuild = new TestDataBuild();
+    static String placeId;
 
     @Given("Add Place Payload with {string} {string} {string}")
     public void addPlacePayload(String name, String lang, String address) throws IOException {
@@ -56,11 +56,16 @@ public class StepDefPlaceValApi extends Utils {
     @And("verify place_Id maps to {string} using {string}")
     public void verifyPlace_IdMapsToUsing(String name, String api) throws IOException {
 //        prepare request spec
-        String place_id = getJsonPath(res, "place_id");
-        req = given().spec(requestSepcification()).queryParam("place_id", place_id);
+        placeId = getJsonPath(res, "place_id");
+        req = given().spec(requestSepcification()).queryParam("place_id", placeId);
         userCallsWithHTTPRequest(api, "GET");
         String actualName = getJsonPath(res, "name");
 
         assertEquals(actualName, name);
+    }
+
+    @Given("DeletePlace Payload")
+    public void deletePlacePayload() throws IOException {
+        req = given().spec(requestSepcification()).body(testDataBuild.deletePlacePayload(placeId));
     }
 }

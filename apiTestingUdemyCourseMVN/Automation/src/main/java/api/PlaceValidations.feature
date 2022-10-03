@@ -12,3 +12,9 @@ Feature: Validatin Place API's
     | name | lang | address |
     | helf | ar | house dme house|
     | jujus | fr | from susdi street|
+
+  Scenario: Verify Delete functionality is working
+    Given DeletePlace Payload
+    When user calls "DeletePlaceApi" with "POST" HTTP request
+    Then the API call is successful with status code 200
+    And "status" in response body is "OK"
