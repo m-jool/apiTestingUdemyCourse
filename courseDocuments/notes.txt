@@ -166,6 +166,11 @@ RequestSpecification rsb = new RequestSpecBuilder()
 ResponseSpecification resSpecB = new ResponseSpecBuilder()
 => used to define all common variables to reduce repeated code.
 
+Setting a path parameter when building the spec:
+.pathParam("key", value)
+then use it with when()
+.when.delete("/api/bla/blabla/{key}")
+
 Configuring maven
 =================
 maven is not just for packages, but also for frameworks
