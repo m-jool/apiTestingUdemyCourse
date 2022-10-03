@@ -300,4 +300,16 @@ This depends on the versions of JUnit and TestNG being used
 For JUnit 4 and newer TestNG versions
 mvn test -Dcucumber.filter.tags="@AddPlace"
 
+Jenkins
+=======
+Go to jenkins website
+download generic java package (.war)
+extract, to run, use command
+java -jar jenkins.war
+-httpPort=9090 => to sepcify port => by default, it runs on localhost:8080
+
+jenkins runs can be parametrized per tag using "Choice paramter" with the tags listed as options
+and test verify -Dcucumber.filter.tags="@$tag"
+with tag set as the variable name of "Choice paramter"
+
 
