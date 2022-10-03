@@ -23,7 +23,7 @@ public class StepDefPlaceValApi extends Utils {
     RequestSpecification req;
     Response res;
     TestDataBuild testDataBuild = new TestDataBuild();
-    static String placeId;
+    public static String placeId;
 
     @Given("Add Place Payload with {string} {string} {string}")
     public void addPlacePayload(String name, String lang, String address) throws IOException {

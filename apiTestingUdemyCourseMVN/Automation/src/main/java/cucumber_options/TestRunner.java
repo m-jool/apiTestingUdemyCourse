@@ -13,7 +13,8 @@ import org.junit.runner.RunWith;
         glue = {
                 "step_definitions",
                 "api_step_def"
-        }
+        },
+        tags = "@DeletePlace"
 )
 public class TestRunner {
 }

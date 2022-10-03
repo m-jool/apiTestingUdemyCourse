@@ -259,3 +259,24 @@ public enum APIresources {
     }
 }
 
+Adding Test Tags
+----------------
+@DeletePlace => this is the tag
+Scenario: Verify Delete functionality is working
+
+in the test runner class, simply add the following to CucumberOptions
+tags = "@DeletePlace"
+
+Using Hooks
+-----------
+You can use hooks to make tests dependent on each other
+to do that, add a class, for example, called Hooke.java
+import the cucumber "Before": import io.cucumber.java.Before;
+Annotate your method with
+@Before("@DeletePlace") => where @DeletePlace in the tag that is connected with the Cucumber Scenario
+then inside the method, you will need to call the needed methods from the step definition file to set up things 1st
+
+Java static variables belong to class memory and not instance memory, so they can be called using class name
+StepDefPlaceValApi m = new StepDefPlaceValApi();
+if (StepDefPlaceValApi.placeId == null) {
+
