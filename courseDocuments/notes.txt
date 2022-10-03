@@ -278,5 +278,15 @@ then inside the method, you will need to call the needed methods from the step d
 
 Java static variables belong to class memory and not instance memory, so they can be called using class name
 StepDefPlaceValApi m = new StepDefPlaceValApi();
-if (StepDefPlaceValApi.placeId == null) {
+if (StepDefPlaceValApi.placeId == null) {...}
+
+Changing Test Source Directory!!!
+---------------------------------
+mvn -DtestSourceDirectory=src/foobar/java clean test => using the command line
+
+From POM.xml, under <build>
+<build>
+  <testSourceDirectory>src/foobar/java</testSourceDirectory>
+</build>
+
 
